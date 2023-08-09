@@ -1,0 +1,28 @@
+dockerのリモート環境でファイルをローカルに持ってきて、gitリポジトリにコミットする方法
+
+# 起動しているコンテナのID、名前を確認
+C:\Users\user\practice_code>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED       STATUS         PORTS     NAMES
+116f2d5b01eb   gcc       "bash"    10 days ago   Up 7 minutes             gcc_env
+
+# コンテナのディレクトリを確認し、ファイル名を検索する
+C:\Users\user\practice_code>docker exec -it gcc_env bash
+root@116f2d5b01eb:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@116f2d5b01eb:/# find -name \*.cpp
+./root/.vscode-server/data/User/History/-3a10171b/m0Cs.cpp
+./root/.vscode-server/data/User/History/-3a10171b/usWy.cpp
+./root/.vscode-server/data/User/History/-3a10171b/EYKs.cpp
+./root/.vscode-server/data/User/History/-713a6fb8/YZah.cpp
+./root/.vscode-server/data/User/History/-15e29e75/RLh9.cpp
+./root/.vscode-server/data/User/History/-15e29e75/dmQI.cpp
+./root/.vscode-server/data/User/History/-15e29e75/JI9u.cpp
+./usr/local/src/dokushu_C++/EP1/HelloWorld.cpp
+./usr/local/src/dokushu_C++/EP1/qustion.cpp
+./usr/local/src/dokushu_C++/EP1/practice1_2.cpp
+root@116f2d5b01eb:/# exit
+exit
+
+# 指定のフォルダからローカルにコピーする
+# docker cp [CONTAINER ID]:[コピーしたい対象] [コピーの置き場のローカル場所\新しくつける名前]
+C:\Users\user\practice_code>docker cp 116f2d5b01eb:./usr/local/src/dokushu_C++/EP1 C:/Users/user/practice_code/cpp/EP1
