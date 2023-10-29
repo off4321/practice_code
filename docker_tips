@@ -9,7 +9,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED       STATUS         PORTS     NAMES
 C:\Users\user\practice_code>docker exec -it gcc_env bash
 root@116f2d5b01eb:/# ls
 bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
-root@116f2d5b01eb:/# find -name \*.cpp
+root@116f2d5b01eb:/# find -name *.cpp
 ./root/.vscode-server/data/User/History/-3a10171b/m0Cs.cpp
 ./root/.vscode-server/data/User/History/-3a10171b/usWy.cpp
 ./root/.vscode-server/data/User/History/-3a10171b/EYKs.cpp
